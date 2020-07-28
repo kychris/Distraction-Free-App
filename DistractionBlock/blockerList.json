@@ -1,0 +1,19 @@
+[
+    {
+        "action": {
+            "type": "block"
+        },
+        "trigger": {
+            "url-filter": ".*google.com.*"
+        }
+    },
+    {
+        "action": {
+            "type": "css-display-none",
+            "selector": "div[tab-identifier='FEwhat_to_watch']"
+        },
+        "trigger": {
+            "url-filter": ".*.com.*"
+        }
+    }
+]
