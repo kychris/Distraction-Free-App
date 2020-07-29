@@ -14,7 +14,6 @@
 		4F80DCC224CE487B0096A65B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F80DCC124CE487B0096A65B /* Assets.xcassets */; };
 		4F80DCC524CE487B0096A65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F80DCC324CE487B0096A65B /* LaunchScreen.storyboard */; };
 		4F80DCD324CE48860096A65B /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F80DCD224CE48860096A65B /* blockerList.json */; };
-		4F80DCD524CE48860096A65B /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCD424CE48860096A65B /* ContentBlockerRequestHandler.swift */; };
 		4F80DCD924CE48860096A65B /* DistractionBlock.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F80DCD024CE48860096A65B /* DistractionBlock.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4F80DCE024CE4F0F0096A65B /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCD424CE48860096A65B /* ContentBlockerRequestHandler.swift */; };
 		4F80DCE224D08D880096A65B /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F80DCE124D08D880096A65B /* test.json */; };
@@ -22,6 +21,9 @@
 		4F80DCEC24D0A5430096A65B /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCEB24D0A5430096A65B /* Trigger.swift */; };
 		4F80DCEE24D0AC720096A65B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCED24D0AC720096A65B /* Action.swift */; };
 		4F80DCF024D0B62E0096A65B /* CustomKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCEF24D0B62E0096A65B /* CustomKey.swift */; };
+		4FCF38EB24D1395C00BBED82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCBC24CE487B0096A65B /* ViewController.swift */; };
+		4FCF38EC24D1399200BBED82 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCD424CE48860096A65B /* ContentBlockerRequestHandler.swift */; };
+		4FCF38ED24D1399A00BBED82 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F80DCE124D08D880096A65B /* test.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,14 +111,19 @@
 		4F80DCB724CE487B0096A65B /* DistractionFree App */ = {
 			isa = PBXGroup;
 			children = (
+				4F80DCBA24CE487B0096A65B /* SceneDelegate.swift */,
+				4F80DCB824CE487B0096A65B /* AppDelegate.swift */,
 				4F80DCE324D08DDB0096A65B /* DistractionFree App.entitlements */,
-				4F80DCE124D08D880096A65B /* test.json */,
-				4F80DCE424D0A0C20096A65B /* models */,
-				4F80DCE924D0A3BC0096A65B /* ViewController */,
-				4F80DCEA24D0A3D60096A65B /* Views */,
+				4F80DCBC24CE487B0096A65B /* ViewController.swift */,
+				4F80DCBE24CE487B0096A65B /* Main.storyboard */,
+				4F80DCE524D0A0E10096A65B /* Rule.swift */,
+				4F80DCEB24D0A5430096A65B /* Trigger.swift */,
+				4F80DCED24D0AC720096A65B /* Action.swift */,
+				4F80DCEF24D0B62E0096A65B /* CustomKey.swift */,
 				4F80DCC124CE487B0096A65B /* Assets.xcassets */,
 				4F80DCC324CE487B0096A65B /* LaunchScreen.storyboard */,
 				4F80DCC624CE487B0096A65B /* Info.plist */,
+				4F80DCE124D08D880096A65B /* test.json */,
 			);
 			path = "DistractionFree App";
 			sourceTree = "<group>";
@@ -130,35 +137,6 @@
 				4F80DCD624CE48860096A65B /* Info.plist */,
 			);
 			path = DistractionBlock;
-			sourceTree = "<group>";
-		};
-		4F80DCE424D0A0C20096A65B /* models */ = {
-			isa = PBXGroup;
-			children = (
-				4F80DCE524D0A0E10096A65B /* Rule.swift */,
-				4F80DCEB24D0A5430096A65B /* Trigger.swift */,
-				4F80DCED24D0AC720096A65B /* Action.swift */,
-				4F80DCEF24D0B62E0096A65B /* CustomKey.swift */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
-		4F80DCE924D0A3BC0096A65B /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4F80DCB824CE487B0096A65B /* AppDelegate.swift */,
-				4F80DCBA24CE487B0096A65B /* SceneDelegate.swift */,
-				4F80DCBC24CE487B0096A65B /* ViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		4F80DCEA24D0A3D60096A65B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4F80DCBE24CE487B0096A65B /* Main.storyboard */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F80DCD324CE48860096A65B /* blockerList.json in Resources */,
+				4FCF38ED24D1399A00BBED82 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F80DCD524CE48860096A65B /* ContentBlockerRequestHandler.swift in Sources */,
+				4FCF38EB24D1395C00BBED82 /* ViewController.swift in Sources */,
+				4FCF38EC24D1399200BBED82 /* ContentBlockerRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

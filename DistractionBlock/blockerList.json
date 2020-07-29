@@ -1,5 +1,6 @@
 [
     {
+        "Name" : "GoogleBlock",
         "action": {
             "type": "block"
         },
@@ -8,6 +9,7 @@
         }
     },
     {
+        "Name" : "YoutubeMainBlock",
         "action": {
             "type": "css-display-none",
             "selector": "div[tab-identifier='FEwhat_to_watch']"

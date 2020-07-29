@@ -1,13 +1,24 @@
 [
     {
+        "Name" : "GoogleBlock",
         "action": {
-            "type": "block",
+            "type": "block"
         },
         "trigger": {
             "url-filter": ".*google.com.*"
         }
     },
     {
+        "Name" : "FacebookBlock",
+        "action": {
+            "type": "block"
+        },
+        "trigger": {
+            "url-filter": ".*facebook.com.*"
+        }
+    },
+    {
+        "Name" : "YoutubeMainBlock",
         "action": {
             "type": "css-display-none",
             "selector": "div[tab-identifier='FEwhat_to_watch']"
