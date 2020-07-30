@@ -9,6 +9,7 @@
 import Foundation
 
 struct Rule:  Codable {
+    let name: String
     let action: Action
     let trigger: Trigger
 }

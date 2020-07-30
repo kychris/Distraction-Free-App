@@ -1,6 +1,6 @@
 [
     {
-        "Name" : "GoogleBlock",
+        "name" : "GoogleBlock",
         "action": {
             "type": "block"
         },
@@ -9,22 +9,23 @@
         }
     },
     {
-        "Name" : "FacebookBlock",
+        "name" : "FacebookBlock",
         "action": {
             "type": "block"
         },
         "trigger": {
-            "url-filter": ".*facebook.com.*"
+            "url-filter": ".*instagram.com.*"
         }
     },
     {
-        "Name" : "YoutubeMainBlock",
+        "name" : "YoutubeMainBlock",
         "action": {
             "type": "css-display-none",
             "selector": "div[tab-identifier='FEwhat_to_watch']"
         },
         "trigger": {
             "url-filter": ".*.com.*"
+            
         }
     }
 ]
