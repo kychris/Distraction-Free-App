@@ -13,23 +13,22 @@ import MobileCoreServices
 class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
 
     func beginRequest(with context: NSExtensionContext) {
-        let attachment = NSItemProvider(contentsOf: Bundle.main.url(forResource: "rules", withExtension: "json"))!
-        print("hello")
-//        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: getDocumentsDirectory()).appendingPathExtension("json")
+//        let attachment = NSItemProvider(contentsOf: Bundle.main.url(forResource: "rules", withExtension: "json"))!
         
-//        let attachment = NSItemProvider(contentsOf: taskJSONURL)!
         
-        print(attachment)
+        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: FileManager.default.temporaryDirectory).appendingPathExtension("json")
+        let attachment = NSItemProvider(contentsOf: taskJSONURL)!
+        
         let item = NSExtensionItem()
         item.attachments = [attachment]
         context.completeRequest(returningItems: [item], completionHandler: nil)
-
         
     }
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
+        print(documentsDirectory)
         return documentsDirectory
     }
     

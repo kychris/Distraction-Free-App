@@ -21,21 +21,34 @@ class ViewController: UIViewController {
             print(error)
         })
         
-//        directory for files
+        //directory for files
         print(Bundle.main.bundleURL)
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+//        print(FileManager.default.temporaryDirectory)
+        
+//        UserDefaults.standard.set("Christian", forKey: "name")
+//        print(UserDefaults.standard.string(forKey: "name"))
+//        do {
+//            try FileManager.default.copyItem(atPath: Bundle.main.bundleURL.appendingPathComponent("rules.json").path, toPath: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path)
+//        } catch let error {
+//            print(error)
+//        }
+    
+
         
     }
 
     @IBAction func Toggle(_ sender: UISwitch) {
         
         //read json file in bundle
-        guard let taskJSONURL = Bundle.main.url(forResource: "rules", withExtension: "json") else {
-            return
-        }
+//        guard let taskJSONURL = Bundle.main.url(forResource: "rules", withExtension: "json") else {
+//            return
+//        }
         
         //read json file stored in user directory
 //        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: getDocumentsDirectory()).appendingPathExtension("json")
+        
+        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: FileManager.default.temporaryDirectory).appendingPathExtension("json")
         
           
         let decoder = JSONDecoder()
@@ -83,6 +96,7 @@ class ViewController: UIViewController {
     //
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
         let documentsDirectory = paths[0]
         return documentsDirectory
     }

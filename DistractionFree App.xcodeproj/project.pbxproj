@@ -57,6 +57,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F6D9F3824D39B7C000F1E4E /* DistractionFree AppRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DistractionFree AppRelease.entitlements"; sourceTree = "<group>"; };
+		4F6D9F3924D39B94000F1E4E /* DistractionBlockRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DistractionBlockRelease.entitlements; sourceTree = "<group>"; };
 		4F80DCB524CE487B0096A65B /* DistractionFree App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DistractionFree App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F80DCB824CE487B0096A65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F80DCBA24CE487B0096A65B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		4F80DCB724CE487B0096A65B /* DistractionFree App */ = {
 			isa = PBXGroup;
 			children = (
+				4F6D9F3824D39B7C000F1E4E /* DistractionFree AppRelease.entitlements */,
 				4F80DCE324D08DDB0096A65B /* DistractionFree App.entitlements */,
 				4FB0322924D1D5D200053980 /* Views */,
 				4FB0322624D1D5BD00053980 /* ViewController */,
@@ -132,6 +135,7 @@
 		4F80DCD124CE48860096A65B /* DistractionBlock */ = {
 			isa = PBXGroup;
 			children = (
+				4F6D9F3924D39B94000F1E4E /* DistractionBlockRelease.entitlements */,
 				4F80DCDE24CE4D380096A65B /* DistractionBlock.entitlements */,
 				4F80DCD224CE48860096A65B /* blockerList.json */,
 				4F80DCD424CE48860096A65B /* ContentBlockerRequestHandler.swift */,
@@ -469,7 +473,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "DistractionFree App/DistractionFree App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "DistractionFree App/DistractionFree AppRelease.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4L423D9ZQ;
 				INFOPLIST_FILE = "DistractionFree App/Info.plist";
@@ -512,7 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_ENTITLEMENTS = DistractionBlock/DistractionBlock.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DistractionBlock/DistractionBlockRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4L423D9ZQ;
 				INFOPLIST_FILE = DistractionBlock/Info.plist;
