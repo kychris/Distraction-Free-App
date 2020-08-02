@@ -15,10 +15,15 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
     func beginRequest(with context: NSExtensionContext) {
 //        let attachment = NSItemProvider(contentsOf: Bundle.main.url(forResource: "rules", withExtension: "json"))!
         
+//        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: FileManager.default.temporaryDirectory).appendingPathExtension("json")
+//
         
-        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: FileManager.default.temporaryDirectory).appendingPathExtension("json")
+        let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
+        let taskJSONURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
+        
+        
+        
         let attachment = NSItemProvider(contentsOf: taskJSONURL)!
-        
         let item = NSExtensionItem()
         item.attachments = [attachment]
         context.completeRequest(returningItems: [item], completionHandler: nil)

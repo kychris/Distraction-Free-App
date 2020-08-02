@@ -17,38 +17,76 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //refresh reloader
         SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { error in
             print(error)
         })
         
         //directory for files
-        print(Bundle.main.bundleURL)
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+//        print(Bundle.main.bundleURL)
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
 //        print(FileManager.default.temporaryDirectory)
         
+        //user defaults example
 //        UserDefaults.standard.set("Christian", forKey: "name")
 //        print(UserDefaults.standard.string(forKey: "name"))
-//        do {
-//            try FileManager.default.copyItem(atPath: Bundle.main.bundleURL.appendingPathComponent("rules.json").path, toPath: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].path)
-//        } catch let error {
-//            print(error)
-//        }
+
     
 
         
+    }
+    
+    @IBAction func AddRule(_ sender: UISwitch) {
+        guard let taskJSONURL = Bundle.main.url(forResource: "rules", withExtension: "json") else {
+            return
+        }
+        let decoder = JSONDecoder()
+        let encoder = JSONEncoder()
+
+        do {
+            let taskData = try Data(contentsOf: taskJSONURL)
+    
+            let task = try decoder.decode([Rule].self, from: taskData)
+            
+            let exportData = try encoder.encode(task)
+            let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
+            print(groupUrl)
+            let exportJsonURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
+            
+            try exportData.write(to: exportJsonURL)
+            
+        } catch let error {
+            print(error)
+        }
+        
+        
+        
+        SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { error in
+                    print(error)
+        })
     }
 
     @IBAction func Toggle(_ sender: UISwitch) {
         
         //read json file in bundle
-//        guard let taskJSONURL = Bundle.main.url(forResource: "rules", withExtension: "json") else {
-//            return
-//        }
+        guard let taskJSONURL = Bundle.main.url(forResource: "rules", withExtension: "json") else {
+            return
+        }
         
         //read json file stored in user directory
 //        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: getDocumentsDirectory()).appendingPathExtension("json")
         
-        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: FileManager.default.temporaryDirectory).appendingPathExtension("json")
+//        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: FileManager.default.temporaryDirectory).appendingPathExtension("json")
+        
+//        guard let JSONURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract") else {
+//            print("not found file")
+//            return
+//        }
+        
+//        let taskJSONURL = URL(fileURLWithPath: "rules", relativeTo: JSONURL).appendingPathExtension("json")
+        
+//        print(taskJSONURL)
         
           
         let decoder = JSONDecoder()
@@ -87,9 +125,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func AddRule(_ sender: UISwitch) {
-        
-    }
+    
     
     
     

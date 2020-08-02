@@ -8,6 +8,10 @@
 
 import Foundation
 
-struct Trigger:  Codable {
+struct Trigger: Codable {
     let urlfilter: String
+    
+    enum CodingKeys: String, CodingKey {
+        case urlfilter = "url-filter"
+    }
 }
