@@ -1,5 +1,14 @@
 [
     {
+        "name" : "BlockNone",
+        "action": {
+            "type": "block"
+        },
+        "trigger": {
+            "url-filter": ".*christianyang.com.*"
+        }
+    },
+    {
         "name" : "GoogleBlock",
         "action": {
             "type": "block"
@@ -9,7 +18,7 @@
         }
     },
     {
-        "name" : "FacebookBlock",
+        "name" : "InstagramBlock",
         "action": {
             "type": "block"
         },
