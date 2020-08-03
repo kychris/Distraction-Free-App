@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         
         //user defaults example
         UserDefaults.standard.set("Christian", forKey: "name")
-        print(UserDefaults.standard.dictionaryRepresentation())
+//        print(UserDefaults.standard.dictionaryRepresentation())
         
         
         
@@ -64,18 +64,23 @@ class ViewController: UIViewController {
         if(sender.isOn) { //if toggle is enabled
             UserDefaults.standard.set(true, forKey: toggleName)
             do {
-                let task = try decoder.decode([Rule].self, from: taskData)
-                for t in task {
-                    if t.name == toggleName {
-                        ret.append(t)
+                let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
+//                print(groupUrl)
+                let exportJsonURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
+                var exports = try Data(contentsOf: exportJsonURL)
+                var exportList = try decoder.decode([Rule].self, from: exports)
+                
+                let rules = try Data(contentsOf: taskJSONURL)
+                let ruleList = try decoder.decode([Rule].self, from: rules)
+                for r in ruleList {
+                    if r.name == toggleName {
+                        exportList.append(r)
                     }
                 }
                 
-                let exportData = try encoder.encode(ret)
-                let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
-                print(groupUrl)
-                let exportJsonURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
+                print(exportList)
                 
+                let exportData = try encoder.encode(exportList)
                 try exportData.write(to: exportJsonURL)
                 
             } catch let error {
@@ -85,14 +90,29 @@ class ViewController: UIViewController {
         } else { //if sender is disabled
             UserDefaults.standard.set(false, forKey: toggleName)
             do {
-                let task = try decoder.decode([Rule].self, from: taskData)
-                var ret: [Rule] = []
-                ret.append(task[0])
-                let exportData = try encoder.encode(ret)
+
                 let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
-                print(groupUrl)
                 let exportJsonURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
+                var exports = try Data(contentsOf: exportJsonURL)
+                var exportList = try decoder.decode([Rule].self, from: exports)
+
+                for i in 0..<exportList.count {
+                    if exportList[i].name == toggleName {
+                        if(exportList.count > 1) {
+                            exportList.remove(at: i)
+                            break
+                        } else {
+                            let rules = try Data(contentsOf: taskJSONURL)
+                            let ruleList = try decoder.decode([Rule].self, from: rules)
+                            exportList.append(ruleList[0])
+                            exportList.remove(at: 0)
+                        }
+                    }
+                }
+   
+                print(exportList)
                 
+                let exportData = try encoder.encode(exportList)
                 try exportData.write(to: exportJsonURL)
             } catch let error {
                 print(error)
