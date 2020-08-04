@@ -22,13 +22,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         for i in 1...ruleNum {
-            print(i)
             var tmpButton = self.view.viewWithTag(i) as? UISwitch
             var curRuleName = ruleNames[i-1]
             tmpButton?.isOn = UserDefaults.standard.bool(forKey: curRuleName)
         }
         
         resetCache()
+        detectContentBlockerEnabling()
         
         //refresh reloader
         SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { error in
@@ -186,7 +186,7 @@ class ViewController: UIViewController {
             let exportData = try encoder.encode(exportList)
             try exportData.write(to: exportJsonURL)
             
-            print(exportList)
+            
             
             //refresh blocker
             SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { error in
@@ -199,6 +199,20 @@ class ViewController: UIViewController {
         }
     }
     
+    func detectContentBlockerEnabling() {
+        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { (state, error) in
+            if let error = error {
+                print(error)
+            }
+            if let state = state {
+                let contentBlockerIsEnabled = state.isEnabled
+                if(!contentBlockerIsEnabled) {
+                    let alert = UIAlertController(title: "Please enable content blocker", message: "Go to settings->Safari->content blocker, then restart the app", preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        })
+    }
     @IBAction func testButton(_ sender: UIButton) {
         resetCache()
     }
