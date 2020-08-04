@@ -15,21 +15,25 @@ import SafariServices
 class ViewController: UIViewController {
     
     let ruleNames: [String] = ["GoogleBlock","InstagramBlock"]
-    
+    let ruleNum: Int = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        for i in 1...ruleNum {
+            print(i)
+            var tmpButton = self.view.viewWithTag(i) as? UISwitch
+            var curRuleName = ruleNames[i-1]
+            tmpButton?.isOn = UserDefaults.standard.bool(forKey: curRuleName)
+        }
+        
+        
+        
         //refresh reloader
         SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { error in
             print(error)
         })
-        
-        //directory for files
-//        print(Bundle.main.bundleURL)
-//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-//        print(FileManager.default.temporaryDirectory)
         
         //user defaults example
         UserDefaults.standard.set("Christian", forKey: "name")
@@ -41,7 +45,7 @@ class ViewController: UIViewController {
     
     @IBAction func AddRule(_ sender: UISwitch) {
         
-        let toggleName: String = ruleNames[sender.tag]
+        let toggleName: String = ruleNames[sender.tag-1]
         
         let decoder = JSONDecoder()
         let encoder = JSONEncoder()
