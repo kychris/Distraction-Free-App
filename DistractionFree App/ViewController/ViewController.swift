@@ -28,19 +28,12 @@ class ViewController: UIViewController {
             tmpButton?.isOn = UserDefaults.standard.bool(forKey: curRuleName)
         }
         
-        
+        resetCache()
         
         //refresh reloader
         SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { error in
             print(error)
         })
-        
-        //user defaults example
-        UserDefaults.standard.set("Christian", forKey: "name")
-//        print(UserDefaults.standard.dictionaryRepresentation())
-        
-        
-        
     }
     
     @IBAction func AddRule(_ sender: UISwitch) {
@@ -165,9 +158,50 @@ class ViewController: UIViewController {
     }
     
     
+    //reset save json file
+    func resetCache() {
+        //start coders
+        let decoder = JSONDecoder()
+        let encoder = JSONEncoder()
+        do {
+            var exportList: [Rule] = [] //final export
+            //read rule list json
+            guard let taskJSONURL = Bundle.main.url(forResource: "rules", withExtension: "json") else {
+                return
+            }
+            let rules = try Data(contentsOf: taskJSONURL)
+            let ruleList = try decoder.decode([Rule].self, from: rules)
+            
+            //append default and rules that are true
+            exportList.append(ruleList[0])
+            for rule in ruleList {
+                if (UserDefaults.standard.bool(forKey: rule.name)) {
+                    exportList.append(rule)
+                }
+            }
+            
+            //export new selected rules to group
+            let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
+            let exportJsonURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
+            let exportData = try encoder.encode(exportList)
+            try exportData.write(to: exportJsonURL)
+            
+            print(exportList)
+            
+            //refresh blocker
+            SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { error in
+                print(error)
+            })
+            
+        } catch let error {
+            print("Me created: Reset Cache ERROR")
+            print(error)
+        }
+    }
     
-    
-    
+    @IBAction func testButton(_ sender: UIButton) {
+        resetCache()
+    }
     
     //
     func getDocumentsDirectory() -> URL {
