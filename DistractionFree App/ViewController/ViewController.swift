@@ -12,6 +12,8 @@ import SafariServices
 
 
 
+
+
 class ViewController: UIViewController {
     
     let ruleNames: [String] = ["GoogleBlock","InstagramBlock"]
@@ -44,17 +46,7 @@ class ViewController: UIViewController {
         let encoder = JSONEncoder()
         
         
-        var ret: [Rule] = []
-        
         guard let taskJSONURL = Bundle.main.url(forResource: "rules", withExtension: "json") else {
-            return
-        }
-        
-        var taskData: Data = Data()
-        do {
-            taskData = try Data(contentsOf: taskJSONURL)
-        } catch let error {
-            print(error)
             return
         }
         
@@ -64,7 +56,7 @@ class ViewController: UIViewController {
                 let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
 //                print(groupUrl)
                 let exportJsonURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
-                var exports = try Data(contentsOf: exportJsonURL)
+                let exports = try Data(contentsOf: exportJsonURL)
                 var exportList = try decoder.decode([Rule].self, from: exports)
                 
                 let rules = try Data(contentsOf: taskJSONURL)
@@ -157,7 +149,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     //reset save json file
     func resetCache() {
         //start coders
@@ -217,12 +208,69 @@ class ViewController: UIViewController {
         resetCache()
     }
     
-    //
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        let documentsDirectory = paths[0]
-        return documentsDirectory
+    
+    
+    //helper functions
+    func readCurrentExport() -> [Rule] {
+        let decoder = JSONDecoder()
+        do {
+            let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
+            let exportJsonURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
+            let exports = try Data(contentsOf: exportJsonURL)
+            let exportList = try decoder.decode([Rule].self, from: exports)
+            
+            return exportList
+        } catch let error {
+            print(error)
+            return []
+        }
     }
+    func writeToOutput(exportList: [Rule]) {
+        let encoder = JSONEncoder()
+        do {
+            let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.distract")
+            let exportJsonURL = URL(fileURLWithPath: "export", relativeTo: groupUrl).appendingPathExtension("json")
+            let exportData = try encoder.encode(exportList)
+            try exportData.write(to: exportJsonURL)
+        } catch let error {
+            print(error)
+        }
+        refreshBlocker()
+    }
+    
+    func refreshBlocker() {
+        SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { error in
+            print(error ?? "")
+        })
+    }
+    
+    func getRules() -> [Rule] {
+        let decoder = JSONDecoder()
+        do {
+            guard let taskJSONURL = Bundle.main.url(forResource: "rules", withExtension: "json") else { return [] }
+            let rules = try Data(contentsOf: taskJSONURL)
+            let ruleList = try decoder.decode([Rule].self, from: rules)
+            return ruleList
+        } catch let error {
+            print(error)
+            return []
+        }
+    }
+    
+    func findRule(ruleList: [Rule], toggleName: String) -> Rule {
+        for r in ruleList {
+            if r.name == toggleName {
+                return r
+            }
+        }
+        return ruleList[0]
+    }
+    
+    
+    
+    
+    
+    
+    
 }
 
