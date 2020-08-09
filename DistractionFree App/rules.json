@@ -27,6 +27,15 @@
         }
     },
     {
+        "name" : "FacebookBlock",
+        "action": {
+            "type": "block"
+        },
+        "trigger": {
+            "url-filter": ".*facebook.com.*"
+        }
+    },
+    {
         "name" : "YoutubeMainBlock",
         "action": {
             "type": "css-display-none",

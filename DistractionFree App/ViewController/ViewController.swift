@@ -11,12 +11,10 @@ import DistractionBlock
 import SafariServices
 
 
-
-
-
 class ViewController: UIViewController {
     
     let ruleNames: [String] = ["GoogleBlock","InstagramBlock"]
+    let ruleMobile: [String:String] = ["GoogleBlock":"FacebookBlock"]
     let ruleNum: Int = 2
 
     override func viewDidLoad() {
@@ -30,15 +28,15 @@ class ViewController: UIViewController {
         }
         
         //reset system
-        resetCache()
+//        resetCache() //careful with buddy system
         detectContentBlockerEnabling()
         refreshBlocker()
         
     }
     
     @IBAction func AddRule(_ sender: UISwitch) {
-        
         let toggleName: String = ruleNames[sender.tag-1]
+        let haveBuddy: Bool = haveMobileBuddy(cur: toggleName)
         
         if(sender.isOn) { //if toggle is enabled
             
@@ -48,16 +46,25 @@ class ViewController: UIViewController {
             var exportList = readCurrentExport()
             let ruleList = getRules()
             exportList.append(findRule(ruleList: ruleList, toggleName: toggleName))
+            
+            //check mobile version, insert if exist
+            if (haveBuddy) {
+                let buddyName = ruleMobile[toggleName]!
+                exportList.append(findRule(ruleList: ruleList, toggleName: buddyName))
+            }
+            
             writeToOutput(exportList: exportList)
             print(exportList)
+            
+            
             
         } else { //if sender is disabled
             
             UserDefaults.standard.set(false, forKey: toggleName) //save setting to permanent storage
             
-            //remove current rule from output
             var exportList = readCurrentExport()
-            for i in 0..<exportList.count {
+            
+            for i in 0..<exportList.count { //remove current rule from output
                 if exportList[i].name == toggleName {
                     if(exportList.count > 1) { //if export not empty, remove item
                         exportList.remove(at: i)
@@ -69,9 +76,27 @@ class ViewController: UIViewController {
                     }
                 }
             }
+            
+            if ( haveBuddy ) { //remove buddy if there is one
+                let buddyName = ruleMobile[toggleName]!
+                for i in 0..<exportList.count {
+                    if exportList[i].name == buddyName {
+                        if(exportList.count > 1) { //if export not empty, remove item
+                            exportList.remove(at: i)
+                            break
+                        } else { //if export is empty, append placeholder
+                            let ruleList = getRules()
+                            exportList.append(ruleList[0])
+                            exportList.remove(at: 0)
+                        }
+                    }
+                }
+            }
+            
             writeToOutput(exportList: exportList)
             print(exportList)
         }
+        
         refreshBlocker() //refreshed safari content blocker
     }
     
@@ -82,6 +107,10 @@ class ViewController: UIViewController {
         for rule in ruleList {
             if (UserDefaults.standard.bool(forKey: rule.name)) {
                 exportList.append(rule)
+                
+                if (haveMobileBuddy(cur: rule.name)) { //if rule have buddy
+                    exportList.append(findRule(ruleList: ruleList, toggleName: ruleMobile[rule.name]!))
+                }
             }
         }
         writeToOutput(exportList: exportList)
@@ -108,8 +137,9 @@ class ViewController: UIViewController {
     }
     
     
-    
+    //
     //helper functions
+    //
     func readCurrentExport() -> [Rule] {
         let decoder = JSONDecoder()
         do {
@@ -166,11 +196,13 @@ class ViewController: UIViewController {
         return ruleList[0]
     }
     
-    
-    
-    
-    
-    
-    
+    func haveMobileBuddy(cur: String) -> Bool {
+        if let val = ruleMobile[cur] {
+            return true
+        } else {
+            return false
+        }
+    }
+ 
 }
 
