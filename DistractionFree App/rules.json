@@ -36,14 +36,24 @@
         }
     },
     {
-        "name" : "YoutubeMainBlock",
+        "name" : "InsFeed",
         "action": {
             "type": "css-display-none",
-            "selector": "div[tab-identifier='FEwhat_to_watch']"
+            "selector": "._8Rm4L, .zGtbP, .cGcGK"
         },
         "trigger": {
-            "url-filter": ".*.com.*"
-            
+            "url-filter": ".*instagram.com.*"
+        }
+    },
+    {
+        "name" : "InsButtons",
+        "action": {
+            "type": "css-display-none",
+            "selector": "svg[aria-label='Find People'], svg[aria-label='Activity Feed'], .K6yM_, svg[aria-label='Activity']"
+        },
+        "trigger": {
+            "url-filter": ".*instagram.com.*"
         }
     }
+    
 ]

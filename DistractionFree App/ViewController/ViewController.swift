@@ -13,7 +13,7 @@ import SafariServices
 
 class ViewController: UIViewController {
     
-    let ruleNames: [String] = ["GoogleBlock","InstagramBlock"]
+    let ruleNames: [String] = ["GoogleBlock","InsButtons"]
     let ruleMobile: [String:String] = ["GoogleBlock":"FacebookBlock"]
     let ruleNum: Int = 2
 
