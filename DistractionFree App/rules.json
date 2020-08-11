@@ -27,15 +27,6 @@
         }
     },
     {
-        "name" : "FacebookBlock",
-        "action": {
-            "type": "block"
-        },
-        "trigger": {
-            "url-filter": ".*facebook.com.*"
-        }
-    },
-    {
         "name" : "InsFeed",
         "action": {
             "type": "css-display-none",
@@ -54,6 +45,65 @@
         "trigger": {
             "url-filter": ".*instagram.com.*"
         }
+    },
+    {
+        "name" : "FbFeed",
+        "action": {
+            "type": "css-display-none",
+            "selector": "#m_newsfeed_stream, #topnews_main_stream_408239535924329"
+        },
+        "trigger": {
+            "url-filter": ".*facebook.com.*"
+        }
+    },
+    {
+        "name" : "FbNotification",
+        "action": {
+            "type": "css-display-none",
+            "selector": "#fbNotificationsJewel, #notifications_jewel"
+        },
+        "trigger": {
+            "url-filter": ".*facebook.com.*"
+        }
+    },
+    {
+        "name" : "FbMessenger",
+        "action": {
+            "type": "css-display-none",
+            "selector": ".jewelButton, #messages_jewel"
+        },
+        "trigger": {
+            "url-filter": ".*facebook.com.*"
+        }
+    },
+    {
+        "name" : "YtFeed",
+        "action": {
+            "type": "css-display-none",
+            "selector": ".ytd-rich-grid-renderer, div[tab-identifier='FEwhat_to_watch']"
+        },
+        "trigger": {
+            "url-filter": ".*youtube.com.*"
+        }
+    },
+    {
+        "name" : "YtRecommand",
+        "action": {
+            "type": "css-display-none",
+            "selector": "#related, ytm-item-section-renderer[section-identifier='related-items']"
+        },
+        "trigger": {
+            "url-filter": ".*youtube.com.*"
+        }
+    },
+    {
+        "name" : "YtComments",
+        "action": {
+            "type": "css-display-none",
+            "selector": "#comments, ytm-comment-section-renderer[class='scwnr-content']"
+        },
+        "trigger": {
+            "url-filter": ".*youtube.com.*"
+        }
     }
-    
 ]
