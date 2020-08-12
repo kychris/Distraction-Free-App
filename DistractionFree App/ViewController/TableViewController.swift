@@ -167,11 +167,24 @@ class TableViewController: UITableViewController {
         })
     }
     
-    @IBAction func testButton(_ sender: UIButton) {
-        resetCache()
+
+    @IBAction func OpenFirstApp(_ sender: Any) {
+        if let url = URL(string: "https://www.instagram.com") {
+            UIApplication.shared.open(url)
+        }
     }
     
+    @IBAction func OpenSecondApp(_ sender: UIButton) {
+        if let url = URL(string: "https://www.facebook.com") {
+            UIApplication.shared.open(url)
+        }
+    }
     
+    @IBAction func OpenThirdApp(_ sender: UIButton) {
+        if let url = URL(string: "https://www.youtube.com") {
+            UIApplication.shared.open(url)
+        }
+    }
     //
     //helper functions
     //

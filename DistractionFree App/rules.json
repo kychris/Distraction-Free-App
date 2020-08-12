@@ -90,7 +90,7 @@
         "name" : "YtFeed",
         "action": {
             "type": "css-display-none",
-            "selector": ".ytd-rich-grid-renderer, div[tab-identifier='FEwhat_to_watch']"
+            "selector": ".ytd-rich-grid-renderer, div[tab-identifier='FEwhat_to_watch'], #guide-wrapper"
         },
         "trigger": {
             "url-filter": ".*youtube.com.*"
