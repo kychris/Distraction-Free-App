@@ -37,10 +37,20 @@
         }
     },
     {
-        "name" : "InsButtons",
+        "name" : "InsExplore",
         "action": {
             "type": "css-display-none",
-            "selector": "svg[aria-label='Find People'], svg[aria-label='Activity Feed'], .K6yM_, svg[aria-label='Activity']"
+            "selector": "svg[aria-label='Find People'], .K6yM_"
+        },
+        "trigger": {
+            "url-filter": ".*instagram.com.*"
+        }
+    },
+    {
+        "name" : "InsNotification",
+        "action": {
+            "type": "css-display-none",
+            "selector": "svg[aria-label='Activity Feed'], svg[aria-label='Activity']"
         },
         "trigger": {
             "url-filter": ".*instagram.com.*"
@@ -87,7 +97,7 @@
         }
     },
     {
-        "name" : "YtRecommand",
+        "name" : "YtRelated",
         "action": {
             "type": "css-display-none",
             "selector": "#related, ytm-item-section-renderer[section-identifier='related-items']"

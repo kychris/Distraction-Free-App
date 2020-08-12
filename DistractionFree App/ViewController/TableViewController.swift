@@ -11,30 +11,58 @@ import DistractionBlock
 import SafariServices
 
 
+extension UIView {
+
+    func subviewsRecursive() -> [UIView] {
+        return subviews + subviews.flatMap { $0.subviewsRecursive() }
+    }
+
+}
 
 
-class ViewController: UIViewController {
+class TableViewController: UITableViewController {
     
-    let ruleNames: [String] = ["InsFeed","InsExplore","InsNotification"]
+    let ruleNames: [String] = ["InsFeed","InsExplore","InsNotification","FbFeed","FbNotification","FbMessenger","YtFeed","YtRelated","YtComments"]
     let ruleMobile: [String:String] = ["GoogleBlock":"FacebookBlock"]
     let ruleNum: Int = 3
-
+    
+    @IBOutlet weak var InsFeed: UISwitch!
+    @IBOutlet weak var InsExplore: UISwitch!
+    @IBOutlet weak var InsNotification: UISwitch!
+    
+    @IBOutlet weak var FbFeed: UISwitch!
+    @IBOutlet weak var FbNotification: UISwitch!
+    @IBOutlet weak var FbMessenger: UISwitch!
+    
+    @IBOutlet weak var YtFeed: UISwitch!
+    @IBOutlet weak var YtRelated: UISwitch!
+    @IBOutlet weak var YtComments: UISwitch!
+    
+    var switches: [UISwitch] = []
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        switches.append(contentsOf: [InsFeed,InsExplore,InsNotification,FbFeed,FbNotification,FbMessenger,YtFeed,YtRelated,YtComments])
         
-        
-        for i in 1...ruleNum {
-            var tmpButton = self.view.viewWithTag(i) as? UISwitch
-            print(tmpButton)
-            var curRuleName = ruleNames[i-1]
-            tmpButton?.isOn = UserDefaults.standard.bool(forKey: curRuleName)
+        for i in 0..<ruleNames.count {
+            switches[i].isOn = UserDefaults.standard.bool(forKey: ruleNames[i])
         }
         
+        
+//        for i in 1...ruleNum {
+//            var tmpButton = self.view.viewWithTag(i) as? UISwitch
+//            print(tmpButton)
+//            var curRuleName = ruleNames[i-1]
+//            tmpButton?.isOn = UserDefaults.standard.bool(forKey: curRuleName)
+//            print(UserDefaults.standard.bool(forKey: curRuleName))
+//        }
+        
         //reset system
-//        resetCache() //careful with buddy system
+        resetCache() //careful with buddy system
         detectContentBlockerEnabling()
         refreshBlocker()
         
@@ -42,6 +70,7 @@ class ViewController: UIViewController {
     
     @IBAction func AddRule(_ sender: UISwitch) {
         let toggleName: String = ruleNames[sender.tag-1]
+        
         let haveBuddy: Bool = haveMobileBuddy(cur: toggleName)
         
         if(sender.isOn) { //if toggle is enabled

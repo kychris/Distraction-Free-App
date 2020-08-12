@@ -21,6 +21,7 @@
 		4F80DCEC24D0A5430096A65B /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCEB24D0A5430096A65B /* Trigger.swift */; };
 		4F80DCEE24D0AC720096A65B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCED24D0AC720096A65B /* Action.swift */; };
 		4F80DCF024D0B62E0096A65B /* CustomKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCEF24D0B62E0096A65B /* CustomKey.swift */; };
+		4FA26DDD24E34E8C00F31D42 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA26DDC24E34E8C00F31D42 /* TableViewController.swift */; };
 		4FB0322724D1D5C800053980 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCB824CE487B0096A65B /* AppDelegate.swift */; };
 		4FB0322824D1D5C800053980 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCBA24CE487B0096A65B /* SceneDelegate.swift */; };
 		4FB0322A24D1D79000053980 /* CustomKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCEF24D0B62E0096A65B /* CustomKey.swift */; };
@@ -78,6 +79,7 @@
 		4F80DCEB24D0A5430096A65B /* Trigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
 		4F80DCED24D0AC720096A65B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		4F80DCEF24D0B62E0096A65B /* CustomKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKey.swift; sourceTree = "<group>"; };
+		4FA26DDC24E34E8C00F31D42 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				4F80DCBC24CE487B0096A65B /* ViewController.swift */,
+				4FA26DDC24E34E8C00F31D42 /* TableViewController.swift */,
 				4F80DCBA24CE487B0096A65B /* SceneDelegate.swift */,
 				4F80DCB824CE487B0096A65B /* AppDelegate.swift */,
 			);
@@ -284,6 +287,7 @@
 				4F80DCEE24D0AC720096A65B /* Action.swift in Sources */,
 				4F80DCEC24D0A5430096A65B /* Trigger.swift in Sources */,
 				4F80DCF024D0B62E0096A65B /* CustomKey.swift in Sources */,
+				4FA26DDD24E34E8C00F31D42 /* TableViewController.swift in Sources */,
 				4F80DCE624D0A0E10096A65B /* Rule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
