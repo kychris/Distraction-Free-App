@@ -31,6 +31,7 @@
 		4FCF38EB24D1395C00BBED82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCBC24CE487B0096A65B /* ViewController.swift */; };
 		4FCF38EC24D1399200BBED82 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F80DCD424CE48860096A65B /* ContentBlockerRequestHandler.swift */; };
 		4FCF38ED24D1399A00BBED82 /* rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 4F80DCE124D08D880096A65B /* rules.json */; };
+		4FD6B90124E5AC6E00CC4A73 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD6B90024E5AC6E00CC4A73 /* InstructionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		4F80DCED24D0AC720096A65B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		4F80DCEF24D0B62E0096A65B /* CustomKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKey.swift; sourceTree = "<group>"; };
 		4FA26DDC24E34E8C00F31D42 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		4FD6B90024E5AC6E00CC4A73 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,10 +162,11 @@
 		4FB0322624D1D5BD00053980 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4F80DCBC24CE487B0096A65B /* ViewController.swift */,
 				4FA26DDC24E34E8C00F31D42 /* TableViewController.swift */,
+				4FD6B90024E5AC6E00CC4A73 /* InstructionViewController.swift */,
 				4F80DCBA24CE487B0096A65B /* SceneDelegate.swift */,
 				4F80DCB824CE487B0096A65B /* AppDelegate.swift */,
+				4F80DCBC24CE487B0096A65B /* ViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				4F80DCB924CE487B0096A65B /* AppDelegate.swift in Sources */,
 				4F80DCBB24CE487B0096A65B /* SceneDelegate.swift in Sources */,
 				4F80DCEE24D0AC720096A65B /* Action.swift in Sources */,
+				4FD6B90124E5AC6E00CC4A73 /* InstructionViewController.swift in Sources */,
 				4F80DCEC24D0A5430096A65B /* Trigger.swift in Sources */,
 				4F80DCF024D0B62E0096A65B /* CustomKey.swift in Sources */,
 				4FA26DDD24E34E8C00F31D42 /* TableViewController.swift in Sources */,

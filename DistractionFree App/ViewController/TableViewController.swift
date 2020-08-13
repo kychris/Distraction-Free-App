@@ -53,31 +53,42 @@ class TableViewController: UITableViewController {
             switches[i].isOn = UserDefaults.standard.bool(forKey: ruleNames[i])
         }
         
-//        let notificationCenter = NotificationCenter.default
-//        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.didBecomeActiveNotification, object: nil)
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        
+        appMovedToForeground()
         //reset system
         resetCache() //careful with buddy system
-        detectContentBlockerEnabling()
+        refreshContentBlockerStatus()
         refreshBlocker()
         
     }
-//    @objc func appMovedToForeground() {
-//         SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { (state, error) in
-//                   if let error = error {
-//                       print(error)
-//                   }
-//                   if let state = state {
-//                       let contentBlockerIsEnabled = state.isEnabled
-//                       if(!contentBlockerIsEnabled) {
-//                        self.present(self.vc, animated: true, completion: nil)
-//                       } else {
-//                        self.vc.dismiss(animated: true, completion: nil)
-//                    }
-//                   }
-//        })
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        refreshContentBlockerStatus()
+//        if (!UserDefaults.standard.bool(forKey: "ContentBlockerStatus")) {
+//            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let newViewController = storyBoard.instantiateViewController(withIdentifier: "test") as! InstructionViewController
+////            let newViewController = UIViewController()
+//            newViewController.modalPresentationStyle = .fullScreen
+//            self.present(newViewController, animated: true, completion: nil)
+//            print("sasdhasjdhajksdh")
+//        }
+//
 //    }
+
+    @objc func appMovedToForeground() {
+        refreshContentBlockerStatus()
+        print("called")
+         if (!UserDefaults.standard.bool(forKey: "ContentBlockerStatus")) {
+             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+             let newViewController = storyBoard.instantiateViewController(withIdentifier: "test") as! InstructionViewController
+    //            let newViewController = UIViewController()
+             newViewController.modalPresentationStyle = .fullScreen
+             self.present(newViewController, animated: true, completion: nil)
+             
+        }
+    }
     
     @IBAction func AddRule(_ sender: UISwitch) {
         let toggleName: String = ruleNames[sender.tag-1]
@@ -176,6 +187,19 @@ class TableViewController: UITableViewController {
                 }
             }
         })
+    }
+    
+    func refreshContentBlockerStatus(){
+        SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { (state, error) in
+            if let error = error {
+                print(error)
+            }
+            if let state = state {
+                let contentBlockerIsEnabled = state.isEnabled
+                UserDefaults.standard.set(contentBlockerIsEnabled, forKey: "ContentBlockerStatus")
+            }
+        })
+        
     }
     
 
