@@ -12,6 +12,15 @@ import SafariServices
 
 
 
+//============================================
+//============================================
+// Outdated, use table view controller instead
+//============================================
+//============================================
+
+
+
+
 
 class ViewController: UIViewController {
     
@@ -34,8 +43,8 @@ class ViewController: UIViewController {
         }
         
         //reset system
-//        resetCache() //careful with buddy system
-        detectContentBlockerEnabling()
+        resetCache() //careful with buddy system
+//        detectContentBlockerEnabling()
         refreshBlocker()
         
     }

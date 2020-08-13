@@ -40,6 +40,7 @@ class TableViewController: UITableViewController {
     
     var switches: [UISwitch] = []
     
+    let vc = UIViewController()
     
     
     
@@ -52,14 +53,9 @@ class TableViewController: UITableViewController {
             switches[i].isOn = UserDefaults.standard.bool(forKey: ruleNames[i])
         }
         
+//        let notificationCenter = NotificationCenter.default
+//        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-//        for i in 1...ruleNum {
-//            var tmpButton = self.view.viewWithTag(i) as? UISwitch
-//            print(tmpButton)
-//            var curRuleName = ruleNames[i-1]
-//            tmpButton?.isOn = UserDefaults.standard.bool(forKey: curRuleName)
-//            print(UserDefaults.standard.bool(forKey: curRuleName))
-//        }
         
         //reset system
         resetCache() //careful with buddy system
@@ -67,6 +63,21 @@ class TableViewController: UITableViewController {
         refreshBlocker()
         
     }
+//    @objc func appMovedToForeground() {
+//         SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: "com.Christian.DistractionFree-App.DistractionBlock", completionHandler: { (state, error) in
+//                   if let error = error {
+//                       print(error)
+//                   }
+//                   if let state = state {
+//                       let contentBlockerIsEnabled = state.isEnabled
+//                       if(!contentBlockerIsEnabled) {
+//                        self.present(self.vc, animated: true, completion: nil)
+//                       } else {
+//                        self.vc.dismiss(animated: true, completion: nil)
+//                    }
+//                   }
+//        })
+//    }
     
     @IBAction func AddRule(_ sender: UISwitch) {
         let toggleName: String = ruleNames[sender.tag-1]

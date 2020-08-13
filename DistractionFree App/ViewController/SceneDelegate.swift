@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SafariServices
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

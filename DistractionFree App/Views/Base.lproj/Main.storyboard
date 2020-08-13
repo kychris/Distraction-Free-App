@@ -82,6 +82,30 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="qQh-ZZ-Jeo">
+            <objects>
+                <viewController id="Mvi-74-8qc" customClass="ViewController" customModule="DistractionFree_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DXV-wL-d4a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QN-RI-O9k">
+                                <rect key="frame" x="129" y="269" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3Iw-hD-SWt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ixC-Tk-r1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1809" y="79"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="VcP-II-4Qy">
             <objects>
@@ -155,6 +179,33 @@
                                 <constraint firstAttribute="trailing" secondItem="EUK-m5-Jxu" secondAttribute="trailing" constant="20" id="Wqb-YH-G0B"/>
                                 <constraint firstItem="EUK-m5-Jxu" firstAttribute="leading" secondItem="QpB-m5-vqs" secondAttribute="leading" constant="20" id="YtB-2J-3ug"/>
                             </constraints>
+                        </stackView>
+                        <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" id="hQJ-NN-SfJ">
+                            <rect key="frame" x="0.0" y="669.83333206176758" width="414" height="100"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wQ1-Dv-5pn">
+                                    <rect key="frame" x="146.33333333333334" y="0.0" width="121.66666666666666" height="28.666666666666668"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Uninstall the native social apps" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7aL-8g-RaZ">
+                                    <rect key="frame" x="81" y="37.666666666666664" width="252" height="20.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Click on icons to run clean version" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GZu-jc-K7H">
+                                    <rect key="frame" x="67.666666666666686" y="67" width="279" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asd-kj-Qiq">
+                                    <rect key="frame" x="107" y="96.333333333333329" width="200" height="3.6666666666666714"/>
+                                </stackView>
+                            </subviews>
                         </stackView>
                         <sections>
                             <tableViewSection headerTitle="Instagram" id="Tpe-oy-5ll">
@@ -438,6 +489,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
+                            </tableViewSection>
+                            <tableViewSection id="2c1-Md-xlw">
+                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>
