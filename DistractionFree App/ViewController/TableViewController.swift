@@ -204,20 +204,37 @@ class TableViewController: UITableViewController {
     
 
     @IBAction func OpenFirstApp(_ sender: Any) {
-        if let url = URL(string: "https://www.instagram.com") {
-            UIApplication.shared.open(url)
+        //open using built in browser
+        if let url = URL(string: "http://www.instagram.com") {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
         }
+        //open using safari browser
+//        if let url = URL(string: "https://www.instagram.com") {
+//            UIApplication.shared.open(url)
+//        }
     }
     
     @IBAction func OpenSecondApp(_ sender: UIButton) {
-        if let url = URL(string: "https://www.facebook.com") {
-            UIApplication.shared.open(url)
+        if let url = URL(string: "http://www.facebook.com") {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
         }
     }
     
     @IBAction func OpenThirdApp(_ sender: UIButton) {
-        if let url = URL(string: "https://www.youtube.com") {
-            UIApplication.shared.open(url)
+        if let url = URL(string: "http://www.youtube.com") {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
         }
     }
     //
