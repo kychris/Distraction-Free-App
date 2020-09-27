@@ -133,7 +133,6 @@
 				4FB0322624D1D5BD00053980 /* ViewController */,
 				4FB0322524D1D5A900053980 /* Models */,
 				4F80DCC124CE487B0096A65B /* Assets.xcassets */,
-				4F80DCC324CE487B0096A65B /* LaunchScreen.storyboard */,
 				4F80DCC624CE487B0096A65B /* Info.plist */,
 				4F80DCE124D08D880096A65B /* rules.json */,
 			);
@@ -181,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				4F80DCBE24CE487B0096A65B /* Main.storyboard */,
+				4F80DCC324CE487B0096A65B /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
