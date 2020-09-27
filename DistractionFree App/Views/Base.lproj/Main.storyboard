@@ -574,14 +574,15 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-qZ-KLk" userLabel="InstructionsVertical">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="272.66666666666669"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="TLj-9b-tnR" userLabel="instruHorizontal1">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="-28" translatesAutoresizingMaskIntoConstraints="NO" id="TLj-9b-tnR" userLabel="instruHorizontal1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete-512" translatesAutoresizingMaskIntoConstraints="NO" id="KLX-Xa-cMU">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="222" height="134"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KLX-Xa-cMU">
+                                                                        <rect key="frame" x="0.0" y="-1" width="221" height="134.66666666666669"/>
+                                                                        <color key="tintColor" systemColor="systemOrangeColor"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uninstall native versions" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQ9-Wi-5D1">
-                                                                        <rect key="frame" x="192" y="0.0" width="222" height="134"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on icons to visit modified sites directly" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQ9-Wi-5D1">
+                                                                        <rect key="frame" x="193" y="0.0" width="221" height="134"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -594,7 +595,7 @@
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfinder_safari_16_171344" translatesAutoresizingMaskIntoConstraints="NO" id="ZzR-Ej-2Sa">
                                                                         <rect key="frame" x="0.0" y="0.0" width="221" height="133.66666666666666"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on icons to visit site through safari" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-E7-geM">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or use safari by typing in the web addresses" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-E7-geM">
                                                                         <rect key="frame" x="193" y="0.0" width="221" height="133.66666666666666"/>
                                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                                                         <nil key="textColor"/>
@@ -624,7 +625,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xSI-fU-9P0" secondAttribute="trailing" id="7aM-Wu-XaS"/>
-                                    <constraint firstItem="xSI-fU-9P0" firstAttribute="top" secondItem="Zho-zd-huB" secondAttribute="top" id="lno-IZ-dh5"/>
                                     <constraint firstItem="xSI-fU-9P0" firstAttribute="leading" secondItem="Zho-zd-huB" secondAttribute="leading" id="m36-Xb-KGP"/>
                                 </constraints>
                             </stackView>
@@ -670,17 +670,20 @@
         </scene>
     </scenes>
     <resources>
-        <image name="delete-512" width="512" height="512"/>
         <image name="facebook" width="309" height="310"/>
         <image name="iconfinder_safari_16_171344" width="128" height="128"/>
         <image name="icons8-down-arrow-48" width="48" height="48"/>
         <image name="instagram" width="299" height="299"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="youtube" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
