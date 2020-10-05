@@ -50,7 +50,7 @@
         "name" : "InsNotification",
         "action": {
             "type": "css-display-none",
-            "selector": "svg[aria-label='Activity Feed'], svg[aria-label='Activity']"
+            "selector": "svg[aria-label='Activity Feed'], svg[aria-label='Activity'], .KdEwV"
         },
         "trigger": {
             "url-filter": ".*instagram.com.*"

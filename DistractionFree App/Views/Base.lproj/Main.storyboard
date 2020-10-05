@@ -173,7 +173,7 @@
         <scene sceneID="VcP-II-4Qy">
             <objects>
                 <tableViewController storyboardIdentifier="MainViewController" id="rDP-jB-sOg" customClass="TableViewController" customModule="DistractionFree_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Nnc-vI-PtE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Nnc-vI-PtE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -585,11 +585,11 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLj-9b-tnR" userLabel="instruHorizontal1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="134"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KLX-Xa-cMU">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KLX-Xa-cMU">
                                                                         <rect key="frame" x="0.0" y="-1" width="177" height="134.66666666666669"/>
                                                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on icons to visit modified sites inside app" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQ9-Wi-5D1">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click on icons to visit modified sites inside app" textAlignment="justified" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQ9-Wi-5D1">
                                                                         <rect key="frame" x="177" y="0.0" width="177" height="134"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                         <nil key="textColor"/>
@@ -603,7 +603,7 @@
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfinder_safari_16_171344" translatesAutoresizingMaskIntoConstraints="NO" id="ZzR-Ej-2Sa">
                                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="133.66666666666666"/>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or simple visit them using safari" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-E7-geM">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or simply visit the sites directly using safari" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-E7-geM">
                                                                         <rect key="frame" x="177" y="0.0" width="177" height="133.66666666666666"/>
                                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                                                         <nil key="textColor"/>

@@ -64,18 +64,6 @@ class TableViewController: UITableViewController {
         
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        refreshContentBlockerStatus()
-//        if (!UserDefaults.standard.bool(forKey: "ContentBlockerStatus")) {
-//            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let newViewController = storyBoard.instantiateViewController(withIdentifier: "test") as! InstructionViewController
-////            let newViewController = UIViewController()
-//            newViewController.modalPresentationStyle = .fullScreen
-//            self.present(newViewController, animated: true, completion: nil)
-//            print("sasdhasjdhajksdh")
-//        }
-//
-//    }
 
     @objc func appMovedToForeground() {
         refreshContentBlockerStatus()
